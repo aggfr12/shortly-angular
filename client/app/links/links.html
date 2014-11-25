@@ -1,10 +1,10 @@
 <div id='container'>
   <h1>Links</h1>
-  <input ng-model='newLinkList'/>
-  <button ng-click='addNewLinkList(newLinkList)'>Shorten</button>
   <ul>
-    <li ng-repeat='link in linkList'>
-      {{link.title}}
+    <li ng-repeat='link in data.links'>
+      {{"Original URL: " + link.url + '   New URL: http://' + "   Go to URL" + link.code}}
+      <a href="{{link.url}}">click me</a>
     </li>
   </ul>
+ <a href="#/shorten">Lets Get Shorty With It</a>
 </div>

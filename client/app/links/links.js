@@ -12,5 +12,9 @@ angular.module('shortly.links', [])
   };
   $scope.getLinks();
 
+  $scope.findURL = function(code){
+    console.log(code);
+
+  };
 });
 

@@ -12,6 +12,8 @@ angular.module('shortly.shorten', [])
     .catch(function(err) {
       console.log("all unicorns die", err);
     });
+
+    $location.path( '#/links' );
   };
 
 });

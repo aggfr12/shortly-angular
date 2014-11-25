@@ -14,6 +14,17 @@ angular.module('shortly.services', [])
     });
   };
 
+  var findURL = function(code) {
+    return $http({
+      method: 'GET',
+      url: '/api/links/' + code
+    })
+    .then(function(res){
+      console.log('PROMISE COMPLETE!!!!!');
+      return res.data;
+    });
+  }
+
   var createNewLink = function(link) {
       console.log("link in create new link", link);
 
@@ -31,7 +42,8 @@ angular.module('shortly.services', [])
   return {
     holder: holder,
     getAllLinks: getAllLinks,
-    createNewLink: createNewLink
+    createNewLink: createNewLink,
+    findURL: findURL
   };
 })
 .factory('Auth', function ($http, $location, $window) {
