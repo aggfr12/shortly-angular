@@ -1,3 +1,11 @@
 <div id='container'>
+  <h1>Links</h1>
+  <input ng-model='newLinkList'/>
+  <button ng-click='addNewLinkList(newLinkList)'>Shorten</button>
+  <ul>
+    <li ng-repeat='link in linkList'>
+      {{link.title}}
+    </li>
+  </ul>
   <!-- Your html here -->
 </div>
