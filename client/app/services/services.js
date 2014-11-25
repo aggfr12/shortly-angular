@@ -1,29 +1,38 @@
 angular.module('shortly.services', [])
 
 .factory('Links', function ($http) {
-//   // Your code here
-//
+  var holder = {};
 
-    var getAllLinks = function() {
-      // http get request?
-      return $http({
-        method: 'GET',
-        url: '/api/links'
-      }).then(function(res){
-        console.log('PROMISE COMPLETE!!!!!');
-        return res.data;
-      });
-      // links.push({
-      //   title: link
-      // });
-    };
+  var getAllLinks = function() {
+    return $http({
+      method: 'GET',
+      url: '/api/links'
+    })
+    .then(function(res){
+      console.log('PROMISE COMPLETE!!!!!');
+      return res.data;
+    });
+  };
 
-    return {
-      getAllLinks: getAllLinks
-    };
-//
-//
-//
+  var createNewLink = function(link) {
+      console.log("link in create new link", link);
+
+    return $http({
+      method: 'POST',
+      url: '/api/links',
+      data: {url: link}
+    })
+    .then(function(res){
+      console.log("post complete");
+      return res.data;
+    });
+  };
+
+  return {
+    holder: holder,
+    getAllLinks: getAllLinks,
+    createNewLink: createNewLink
+  };
 })
 .factory('Auth', function ($http, $location, $window) {
   // Don't touch this Auth service!!!
