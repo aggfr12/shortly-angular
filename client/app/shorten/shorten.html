@@ -1,6 +1,12 @@
 <div id='container'>
   <h1>Links</h1>
-  <input ng-model='urlToShorten'/>
-  <button ng-click='addLink(urlToShorten)'>Shorten</button>
+  <form name='shortenedForm' ng-submit='validateURL(shortenedForm)' novalidate>
+    URL: <input type="url" name="input" ng-model='urlToShorten' required>
+    <button ng-click='addLink(urlToShorten)'>Shorten</button>
+    <span class="error" ng-show="shortenedForm.input.$error.required">
+    Required</span>
+    <span class="error" ng-show="shortenedForm.input.$error.url">
+    Not valid url!</span>
+  </form>
 </div>
 
